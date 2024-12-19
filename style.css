@@ -1,0 +1,953 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {scroll-behavior: smooth;}
+
+body {
+    margin: 0.5vw 2vw 2vw 2vw;
+    background-color: #fff;
+}
+
+.landing_chart {
+    display: flex;
+    justify-content: center;
+}
+
+.svg {
+    height: 30vh;
+    width: auto;
+    margin-bottom: 1rem;
+}
+
+.chart_drawing {
+    display: flex;
+    flex-direction: row;
+}
+
+.topinfo-c {
+    margin-left: 1vw;
+    font-family: 'Space Grotesk';
+    color: #0009b5;
+}
+
+.topinfo-cd {
+    margin-left: 1vw;
+    font-family: 'Space Grotesk';
+    color: #890050;
+}
+
+.topinfo-v {
+    margin-left: 1vw;
+    font-family: 'Space Grotesk';
+    color: #7d3600;
+}
+
+.topinfo-d {
+    margin-left: 1vw;
+    font-family: 'Space Grotesk';
+    color: #3e0079;
+}
+
+.topinfo-s {
+    margin-left: 1vw;
+    font-family: 'Space Grotesk';
+    color: #0e5200;
+}
+
+.nav_btns {
+    height: 2rem;
+    width: auto;
+    padding: 0.2rem;
+}
+
+.bckfwd {
+    font-family: 'Roboto Mono';
+    font-weight: 500;
+    margin-top: 0.5vw;
+}
+
+.bckfwd a div, .bckfwd div{
+    border: 2px solid;
+    border-radius: 0.2rem;
+}
+
+.bckfwd a div:hover {
+    border-color: black;
+    color: black;
+}
+
+.color-d {
+    border-color: #3e0079;
+    color: #3e0079;
+}
+
+.color-v {
+    border-color: #7d3600;
+    color: #7d3600;
+}
+
+.color-cd {
+    border-color: #890050;
+    color: #890050;
+}
+
+.color-c {
+    border-color: #0009b5;
+    color: #0009b5;
+}
+
+.color-s {
+    border-color: #0e5200;
+    color: #0e5200;
+}
+
+.color-none {
+    border-color: lightgray;
+    color: lightgray;
+}
+
+.arrow {
+    padding: 0.1rem 0.5rem;
+}
+
+.start {
+    padding: 0.1rem 0.8rem;
+    margin: 0 0.5rem;
+}
+
+div, section {
+    all: unset;
+}
+
+button {
+    cursor: pointer;
+}
+
+a { 
+    text-decoration: none;
+    margin: 0;
+}
+
+.textnav {
+    
+    margin: 2vh 0;
+}
+
+.textnav-links {
+    display: flex;
+    justify-content: left;
+}
+
+.textnav a {
+    display: block;
+    font-family: 'IBM Plex Mono';
+    text-decoration: underline;
+    font-style: italic;
+    color: #000;
+    padding-right: 1vw;
+}
+
+.landing-title {
+    color: #000;
+    width: 45vw;
+    padding-top: 1.5vw;
+    margin-bottom: 2vh;
+}
+
+.landing-title h1 {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1rem;
+    font-family: 'Space Grotesk';
+}
+
+.landing-title h2 {
+    font-family: 'Space Grotesk';
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 75%;
+    margin-bottom: 1rem;
+    animation: color-change 3s infinite;
+}
+
+.landing-title h3 {
+    font-family: 'Space Grotesk';
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 75%;
+    margin-bottom: 0.4rem;
+}
+
+@keyframes color-change {
+    0% { color: #7d3600; }
+    25% { color: #0009b5; }
+    50% { color: #890050; }
+    75% { color: #3e0079; }
+    100% { color: #0e5200; }
+  }
+
+.landing-title hr {
+    width: 25vw;
+    margin-top: 0;
+    margin-bottom: 2rem;
+}
+
+.landing-flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+h1 {
+    margin-bottom: 2rem;
+    font-size: 3rem;
+    font-weight: 700;
+    font-family: 'Space Grotesk';
+    line-height: 4rem;
+}
+
+h2 {
+    font-weight: 300;
+    font-family: 'Space Grotesk';
+    font-size: 1rem;
+}
+
+h2 b {
+    font-weight: 700;
+}
+
+p {
+    font-family: 'IBM Plex Mono';
+    line-height: 1.5rem;
+}
+
+b {
+    font-weight: 600;
+}
+
+.emptyline {
+    line-height: 100%;
+}
+
+.article {
+    font-family: 'Space Grotesk';
+    color: #000;
+    width: 70vw;   
+}
+
+.article h2 {
+    font-family: 'Space Grotesk';
+}
+
+.arrticle {
+    display: flex;
+    justify-content: center;
+}
+
+.scrollink {
+    font-size: 3rem;
+    width: 60%;
+    text-align: center;
+    line-height: 5rem;
+    text-decoration: none;
+    color: inherit;
+}
+
+.skiplink {
+    font-family: 'Space Grotesk';
+    font-size: 1rem;
+    width: 60%;
+    text-align: center;
+    line-height: 5rem;
+    text-decoration: none;
+    line-height: 0;
+    font-weight: 600;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.skiplink:focus {
+    opacity: 1;
+}
+
+.divider {
+    display: flex;
+    justify-content: center;
+}
+
+hr {
+    border-width: 1px;
+    margin: 3rem 0 3rem 0;
+    opacity: 20%;
+    width: 50%;
+    border-color: #dddddd;
+    text-align: center;
+}
+
+#doublearrow {
+    writing-mode: vertical-lr;
+    margin: 2rem 0 0 1vw;
+    line-height: 0;
+    font-weight: 400;
+}
+
+.noback-r {
+    fill: #cccccc;
+}
+
+.noback {
+    stroke: #cccccc;
+}
+
+.bigchart {
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    margin: 4rem 0;
+}
+
+.bigchart-s {
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    margin: 0 0 15vh 0;
+}
+
+#container-mashup,
+#container-chart-2 {
+    width: 40vw;
+    height: 40vh;
+}
+
+.buttons {
+    align-self: center;
+    justify-self: center;
+}
+
+.buttons-graph {
+    margin: 1rem;
+    margin-top: 0;
+}
+
+.artbody,
+.artbody-s {
+    display: flex;
+    justify-content: center;
+    width: 70vw;
+}
+
+.artbody p,
+.artbody-s p {
+    margin-right: 5vw;
+    font-family: 'IBM Plex Mono';
+    width: 50vw;
+}
+
+.latter_art {
+    width: inherit;
+    align-self: end;
+}
+
+.article p {
+    width: 25vw;
+}
+
+.article p b {
+    font-family: 'Space Grotesk';
+    font-weight: 700;
+    width: 25vw;
+}
+
+.article h3 {
+    width: 25vw;
+}
+
+.article hr {
+    width: 10vw;
+    margin: 0 0 1rem 0;
+}
+
+.artfig blockquote {
+    margin-right: 5vw;
+    display: block;
+    width: 25vw;
+    font-style: italic;
+    font-family: 'IBM Plex Mono';
+    line-height: 1.5rem;
+}
+
+.artfig figcaption {
+    display: block;
+    margin-right: 5vw;
+    width: 25vw;
+    font-family: 'IBM Plex Mono';
+    line-height: 1.5rem;
+    margin-top: 1rem;
+}
+
+cite a {
+    font-style: italic;
+    text-decoration: underline;
+}
+
+cite a:hover {
+    color: black;
+}
+
+.cite-chart:hover {
+    color: blue;
+}
+
+.to-streaming:hover {
+    color: black;
+}
+
+.cite-c a {
+    color: #890050;
+}
+
+.cite-s a {
+    color: #0e5200;
+}
+
+.cite-d {
+    color: #3e0079;
+}
+
+.cite-l a {
+    color: black;
+}
+
+.to-streaming {
+    color: #0e5200;
+    font-style: italic;
+    text-decoration: underline;
+    font-family: 'IBM Plex Mono';
+}
+
+.highcharts-subtitle {
+    text-decoration: none;
+    color: #444444;
+}
+
+.highcharts-subtitle:hover {
+    text-decoration: none;
+    color: black;
+}
+
+.cite-chart {
+    text-decoration: underline;
+}
+
+.cite-chart text tspan:hover {
+    color: black;
+}
+
+.landscape {
+    display: none;
+}
+
+.chart_drawing h1 {
+    display: none;
+}
+
+#container-chart {
+    max-width: 50vw;
+    height: 30vh;
+}
+
+#container-chart-main {
+    max-width: 50vw;
+    height: 35vh;
+}
+
+.chart-container {
+    display: flex;
+    align-self: center;
+}
+
+#landing-1280 {
+    display: inherit;
+    width: 100%;
+}
+
+#landing-768 {
+    display: none;
+    width: 100%;
+}
+
+#landing-360 {
+    display: none;
+    width: 100%;
+}
+
+.buttons-graph {
+    background-color: #fff;
+    padding: 0.1rem 0.8rem;
+    border: 2px solid #000;
+    border-radius: 0.2rem;
+    font-family: 'Roboto Mono';
+}
+
+.buttons-graph:hover {
+    color: #0e5200;
+    border-color: #0e5200;
+}
+
+.topinfo-c h2 a {
+    color: #0009b5;
+}
+.topinfo-c h2 a:hover {
+    color: black;
+}
+
+.topinfo-v h2 a {
+    color: #7d3600;
+}
+.topinfo-v h2 a:hover {
+    color: black;
+}
+
+.topinfo-cd h2 a {
+    color: #890050;
+}
+.topinfo-cd h2 a:hover {
+    color: black;
+}
+
+.topinfo-d h2 a {
+    color: #3e0079;
+}
+.topinfo-d h2 a {
+    color: black;
+}
+
+.topinfo-s h2 a {
+    color: #0e5200;
+}
+.topinfo-s h2 a:hover {
+    color: black;
+}
+
+@media screen and (max-width: 768px) {
+
+    body {
+        margin: 8vw;
+    }
+
+    h1 {
+        margin: 0 auto;
+        margin-bottom: 3rem;
+        font-size: 3rem;
+        align-self: flex-start;
+        line-height: 2.5rem;
+        text-align: left;
+        
+    }
+
+    .bckfwd {
+        margin-bottom: 2vh;
+    }
+
+    .landing-flex {
+        display: flex;
+        flex-direction: column;
+    }
+
+    h2 {
+        font-size: 1rem;
+    }
+
+    .scrollink {
+        font-size: 2rem;
+    }
+    
+    .svg {
+        width: 45vw;
+        height: auto;
+    }
+
+    .landscape {
+        display: inherit;
+    }
+
+    .portrait {
+        display: none;
+    }
+    
+    .topinfo-v {
+        margin-left: 0;
+        font-family: 'Space Grotesk';
+        color: #7d3600;
+    }
+
+    .topinfo-v h1 {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .topinfo-c {
+        margin-left: 0;
+        font-family: 'Space Grotesk';
+        color: #0009b5;
+    }
+    
+    .topinfo-c h1 {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .topinfo-cd {
+        margin-left: 0;
+        font-family: 'Space Grotesk'; 
+        color: #890050;
+    }
+
+    .topinfo-cd h1 {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .topinfo-d {
+        margin-left: 0;
+        font-family: 'Space Grotesk';
+        color: #3e0079;
+    }
+
+    .topinfo-d h1 {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .topinfo-s {
+        margin-left: 0;
+        font-family: 'Space Grotesk';
+        color: #0e5200;
+    }
+
+    .topinfo-s h1 {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    #doublearrow {
+        writing-mode: vertical-lr;
+        margin: 2rem 0 0 3vw;
+        line-height: 0;
+        font-weight: 400;
+    }
+
+    .artbody {
+        display: flex;
+        flex-direction: column-reverse;
+        width: 100%;
+    }
+
+    .artbody-s {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .artbody p,
+    .artbody-s p {
+        margin-right: 5vw;
+        font-family: 'IBM Plex Mono';
+        font-weight: 300;
+        width: 100%;
+    }
+
+    .article p {
+        width: 100%;
+    }
+
+    .article h3 {
+        width: 100%;
+    }
+    
+    .article hr {
+        width: 10vw;
+        margin: 1rem 0;
+    }
+    
+    .artfig blockquote {
+        display: block;
+        margin: 0 auto;
+        width: 100%;
+        font-style: italic;
+        font-family: 'IBM Plex Mono';
+    }
+    
+    .artfig figcaption {
+        display: block;
+        margin: 0 auto;
+        width: 100%;
+        font-family: 'IBM Plex Mono';
+        margin-top: 1rem;
+    }
+
+    .bigchart-s {
+        display: flex;
+        flex-direction: column;
+        justify-content: right;
+        margin: 4rem 0;
+    }
+    
+    .cite-c a {
+        color: #890050;
+        font-style: normal;
+        text-decoration: underline;
+    }
+    
+    .to-streaming {
+        color: #0e5200;
+        text-decoration: underline;
+        font-family: 'IBM Plex Mono';
+    }
+    
+    #container-mashup,
+    #container-chart-2 {
+        width: 100%;
+    }
+
+    #container-chart-main,
+    #container-chart {
+        width: 80vw;
+        max-width: 100%;
+    }
+
+    .article {
+        width: 70vw;
+    }
+
+    #arttitle {
+        font-size: 2rem;
+        font-weight: 700;
+    }
+
+    .chart_drawing {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .chart_drawing h1 {
+        display: inherit;
+    }
+
+    .h1-after {
+        display: none;
+    }
+
+    #landing-1280 {
+        display: none;
+    }
+
+    #landing-768 {
+        display: none;
+    }
+
+    #landing-360 {
+        display: inherit;
+    }
+
+    .landing-title {
+        color: #000;
+        width: 100%;
+        margin-bottom: 2vh;
+    }
+    
+    .landing-title h1 {
+        width: 100%;
+        font-size: 1rem;
+        font-weight: 600;
+        font-family: 'Space Grotesk';
+    }
+    
+    .landing-title h2 {
+        font-family: 'Space Grotesk';
+        font-size: 1rem;
+        font-weight: 300;
+        margin-bottom: 1rem;
+        animation: color-change 3s infinite;
+    }
+    
+    .landing-title hr {
+        margin-top: 0;
+        margin-bottom: 3rem;
+        width: 80vw;
+    }
+
+}
+
+@media screen and (min-width: 769px) and (max-width: 1200px) {
+    
+    h1 {
+        line-height: 2rem;
+    }
+
+    #container-mashup,
+    #container-chart-2,
+    #container-chart {
+        width: 100%;
+    }
+
+    #container-chart-main {
+        width: 40vw;
+    }
+
+    .artbody {
+        display: flex;
+        flex-direction: column-reverse;
+        width: 50vw;
+    }
+
+    .artbody-s {
+        display: flex;
+        flex-direction: column;
+        width: 50vw;
+    }
+    
+    .artbody p,
+    .artbody-s p {
+        margin-right: 5vw;
+        font-family: 'IBM Plex Mono';
+        font-weight: 300;
+        width: 100%;
+    }
+
+    .article p {
+        width: 100%;
+    }
+
+    .article h3 {
+        width: 100%;
+    }
+    
+    .article hr {
+        width: 10vw;
+        margin: 1rem 0;
+    }
+
+    .bigchart-s {
+        display: flex;
+        flex-direction: column;
+        justify-content: right;
+        margin: 4rem 0;
+    }
+    
+    .artfig blockquote {
+        display: block;
+        width: 100%;
+        font-style: italic;
+        font-family: 'IBM Plex Mono';
+    }
+    
+    .artfig figcaption {
+        display: block;
+        width: 100%;
+        font-family: 'IBM Plex Mono';
+        margin-top: 1rem;
+    }
+    
+    .cite-c a {
+        color: #890050;
+        font-style: normal;
+        text-decoration: underline;
+    }
+    
+    .to-streaming {
+        color: #0e5200;
+        text-decoration: underline;
+        font-family: 'IBM Plex Mono';
+    }
+
+    .article {
+        width: 100%;
+    }
+
+    #arttitle {
+        font-size: 2rem;
+        font-style: bold;
+    }
+
+    .chart_drawing h1 {
+        display: none;
+    }
+
+    #landing-1280 {
+        display: none;
+    }
+
+    #landing-768 {
+        display: inherit;
+    }
+
+    #landing-360 {
+        display: none;
+    }
+
+    .landing-title {
+        color: #000;
+        width: 50vw;
+    }
+    
+    .landing-title h1 {
+        font-size: 1rem;
+        font-weight: 600;
+        font-family: 'Space Grotesk';
+    }
+    
+    .landing-title h2 {
+        font-family: 'Space Grotesk';
+        font-size: 1rem;
+        font-weight: 400;
+        margin-bottom: 1rem;
+        animation: color-change 3s infinite;
+    }
+    
+    .landing-title hr {
+        margin-top: 0;
+        margin-bottom: 3rem;
+        width: 40vw;
+    }
+
+}
+
+@media screen and (min-width: 480px) and (max-width: 767px) {
+    .landing-title p {
+        width: 54ch;
+    }
+    .artbody,
+    .artbody-s {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 880px) and (max-width: 1200px) {
+    .landing-title p {
+        width: 54ch;
+        z-index: 1;
+    }
+
+    .article p, .article blockquote, .article figcaption, .article h3{
+        width: 75%;
+    }
+
+    
+}
+
+@media screen and (min-width: 1200px) {
+    .landing-flex {
+        height: 55vh;
+    }
+    
+    .landing_chart {
+        height: 34vh;
+        display: flex;
+        align-items: center;
+    }
+}

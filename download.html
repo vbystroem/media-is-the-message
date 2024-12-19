@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nedladdning – The Medium is the Message</title>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <script src="https://code.highcharts.com/modules/annotations.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:regular,italic,bold,bolditalic|Space+Grotesk:semibold,regular,italic,medium,mediumitalic,bold,bolditalic|Roboto+Mono:regular,italic,bold,bolditalic">
+
+  </head>
+  <body>
+    <a class="skiplink color-d" href="#arttitle">» Skip to content</a>
+    <nav class="bckfwd">
+      <a href="cd.html" aria-label="Back">
+        <div class="color-d arrow">&#60;</div>
+      </a>
+
+      <a href="landing.html" aria-label="Start">
+        <div class="color-d start">Start</div>
+      </a>
+
+      <a href="streaming.html" aria-label="Forward">
+        <div class="color-d arrow">&#62;</div>
+      </a>
+    </nav>
+    <main id="main">
+      <section class="topinfo-d">
+        <div class="chart_drawing">
+          <img class="svg portrait" src="../images/sameheight-downloads.svg" alt="En illustration av en USB-sticka" />
+          <img class="svg landscape" src="../images/formats-downloads-landscape.svg" alt="En illustration av en USB-sticka">
+          <h1>Nedladdning</h1>
+          <figure class="chart-container">
+            <div id="container-chart"></div>
+          </figure>
+        </div>
+        <h1 class="h1-after">Nedladdning</h1>
+        <h2><b>Heyday:</b><br>2011 – 2015</h2>
+        <p class="emptyline"><br></p>
+        <h2><b>Typ:</b><br>Digital</h2>
+        <p class="emptyline"><br></p>
+        <h2><b>Mest sålda album <br> under formatets starkaste år (2012):</b><br/>Adele – 21 <a href="https://en.wikipedia.org/wiki/List_of_Billboard_200_number-one_albums_of_2012" target="_blank"><br><u>(Wikipedia, "List of Billboard 200 number-one albums of 2012")</u></a></h2>
+        <a role="button" class="scrollink" href="#arttitle" id="doublearrow">»</a>
+      </section>
+      <div class="divider"><hr></div>
+      <div class="arrticle">
+        <article class="article">
+          <h1 id="arttitle">Varför kraschade musikbranchen när nedladdningar blev mainstream?</h1>
+          <div class="artbody">
+            <div>
+              <h3>Musikbranschen var år 1999 på sin högsta punkt någonsin ekonomiskt.</h3>
+              <p class="emptyline"><br></p>
+              <p>Populariteten och enkelheten hos CD-skivor gjorde att det var mer vanligt än någonsin att äga en musiksamling, men ett annat, billigare alternativ hade bara några år tidigare börjat träda in i bilden. <br>&emsp; <em>MP3</em> är ett filformat som kan ta de digitala ljudvågorna som får plats på CD-skivor och komprimera dem till en fil som tar upp mycket lite utrymme på en hårddisk, och effektivt kan spridas via t.ex internet.</p>
+              <p class="emptyline"><br></p>
+              <figure class="artfig">
+                <blockquote>
+                  "Since MP3 is an open standard, anyone can write a codec that will operate with the same files, and, equally important, no one can buy control of the standard, both of which have been critical to MP3 attaining a critical mass of users as well"
+                </blockquote>
+                <figcaption>
+                  — Robert F. Easley, John G. Michel, och Sarv Devaraj., <cite class="cite cite-d"><a href="https://www.researchgate.net/publication/220426437_The_MP3_open_standard_and_the_music_industry%27s_response_to_Internet_piracy" target="_blank">The MP3 open standard and the music industry's response to Internet piracy</a></cite>
+                </figcaption>
+              </figure>
+              <p class="emptyline"><br></p>
+              <p>Den största och mest populära metoden för nedladdning av musik online under MP3-formatets tidiga år var via <em>Napster</em>, en P2P, eller peer-to-peer tjänst, där användare kan dela filer direkt med varandra. På Napster kunde användare enkelt dela med sig av MP3-filer och direkt ladda ner från andra användares bibliotek, helt utan kostnad. På sin höjd hade Napster 80 miljoner användare, men, efter att ha existerat i bara två år, blev ägarna stämda av bl.a the Recording Industry's Association of America (RIAA) och var tvungna att stänga ner. (Lifewire, <cite class="cite cite-d"><a href="https://www.lifewire.com/history-of-napster-2438592" target="_blank">A Short History of Napster</a></cite>.)</p>
+              <p class="emptyline"><br></p>
+              <p> Det var inte förrän Apple lanserade sin onlinebaserade marknadsplats för musik, <em>iTunes,</em> som musikindustrin började dra in mer pengar igen, men Napster och MP3-formatet hade redan lämnat spår som märks av än idag.</p>
+            </div>
+            <figure class="bigchart">
+              <div id="container-chart-2"></div>
+            </figure>
+          </div>
+        </article>
+      </div>
+    </main>
+    <script>
+      var annotationData = [{
+        x: 1999,
+        y: 22.904,
+        xOffset: 0,
+        yOffset: -30,
+        text: 'Napster'
+      },{
+        x: 2004,
+        y: 0.284,
+        xOffset: 0,
+        yOffset: -10,
+        text: 'iTunes' 
+      }];
+
+      Highcharts.chart('container-chart', {
+
+        data: {
+          csvURL: '../data/RIAA Revenue Chart 1973-2021 Grouped v3 bn round3.csv',
+          beforeParse: function (csv) {
+            return csv.replace(/\n\n/g, '\n');
+          }
+        },
+
+        accessibility: {
+          enabled: true,
+          description: 'En graf som visar intäkter som musikformaten Vinyl, Kassett, Cd, Nedladdning och Streaming tjänat mellan 1973 och 2021. Cd har tjänat mest (ca. 51%, mestadels under 90-talet och tidiga 2000-talet), följt av Vinyl (ca. 18%, mestadels under 70-och-80-talen, med en liten återkomst i 2020-talet), sedan Kassett (ca. 17%, mestadels under 80-och-90-talen), Streaming (ca. 8%, från 2010-talet och framåt) och sist Nedladdning (ca. 5%, mestadels under 2000-talet). Endast linjen som representerar Nedladdning är fokuserad.'
+        },
+
+        credits: {
+              enabled: false
+          },
+
+        title: {
+          text: '',
+        },
+
+        subtitle: {
+          text: 'Källa: <cite class="cite-chart"><a href="https://www.riaa.com/u-s-sales-database/" target="_blank"><u>RIAA "U.S Sales Database"</u></a></cite>',
+          verticalAlign: "bottom",
+          align: 'right',
+        },
+
+        xAxis: {
+          visible: false
+        },
+
+        yAxis: [{
+          title: {
+            text: ''
+          },
+          visible: false,
+          gridLineWidth: 0,
+          minPadding: 0.5,
+        }],
+
+        legend: {
+          enabled: false
+        },
+
+        tooltip: {
+            enabled: false
+        },
+
+        plotOptions: {
+          series: {
+            lineWidth: 1,
+            marker: {
+              enabled: false,
+            },
+            states: {
+              hover: {
+                enabled: false,
+              },
+              inactive: {
+                opacity: 1,
+              },
+            },
+          },
+        },
+
+        series: [{
+          name: 'CD',
+          color: "#464646",
+          dashStyle: 'Dash',
+          accessibility: {
+            description: 'Det här är inkomsten för CD mellan 1973 och 2021.'
+          }
+        }, {
+          name: 'Kassett',
+          color: "#464646",
+          dashStyle: 'Dash',
+          accessibility: {
+            description: 'Det här är inkomsten för kassetter mellan 1973 och 2021.'
+          }
+        }, {
+          name: 'Nedladdning',
+          lineWidth: 3,
+          color: "#3e0079",
+          zIndex: 1,
+          accessibility: {
+            description: 'Det här är inkomsten för nedladdningar mellan 1973 och 2021.'
+          }
+        }, {
+          name: 'Vinyl',
+          color: "#464646",
+          dashStyle: 'Dash',
+          accessibility: {
+            description: 'Det här är inkomsten för vinyler mellan 1973 och 2021.'
+          }
+        }, {
+          name: 'Streaming',
+          color: "#464646",
+          dashStyle: 'Dash',
+          accessibility: {
+            description: 'Det här är inkomsten för streaming mellan 1973 och 2021.'
+          }
+        }]
+      });
+
+      Highcharts.chart('container-chart-2', {
+
+        data: {
+          csvURL: '../data/RIAA Revenue 1973-2021 cd down.csv',
+          beforeParse: function (csv) {
+            return csv.replace(/\n\n/g, '\n');
+          }
+        },
+
+        accessibility: {
+          enabled: true,
+          description: 'En graf som visar intäkterna för CD och nedladdning fram tills 2021. CD har höga intäkter fram till 2000 medan nedladdning inte förekom i någon större omfattning före 2003. Etiketter på respektive linje när Napster uppkom 1999 och när iTunes lanserades 2003.'
+        },
+
+        chart: {
+          events: {
+            load: function() {
+              var chart = this;
+
+              annotationData.forEach(function(annotation) {
+                chart.addAnnotation({
+                  labels: [{
+                    type: 'label',
+                    point: {
+                      x: annotation.x,
+                      y: annotation.y,
+                      xAxis: 0,
+                      yAxis: 0
+                    },
+                    x: annotation.xOffset,
+                    y: annotation.yOffset,
+                    text: annotation.text
+                  }]
+                });
+              });
+            },
+          }
+        },
+        
+        credits: {
+              enabled: false
+          },
+
+        title: {
+          text: '',
+        },
+
+        subtitle: {
+          text: 'Källa: <cite class="cite-chart"><a href="https://www.riaa.com/u-s-sales-database/" target="_blank"><u>RIAA "U.S Sales Database"</u></a></cite>',
+          verticalAlign: "bottom",
+          align: 'right',
+        },
+        xAxis: {
+          visible: true,
+          lineWidth: 1,
+          lineColor: "#464646",
+          tickWidth: 0,
+          labels: {
+            enabled: true,
+          }
+        },
+
+        yAxis: {
+            title: {
+              text: 'Intäkter (md)'
+            },
+            labels: {
+              enabled: true,
+              format: '${value}'
+            },
+            gridLineWidth: 0,
+            minPadding: 0.5,
+            lineWidth: 0,
+            showFirstLabel: false
+          },
+
+          legend: {
+              enabled: true,
+              align: 'left',
+              verticalAlign: 'top',
+              borderWidth: 0,
+              x: 90
+            },
+
+        tooltip: {
+            enabled: false
+        },
+
+        plotOptions: {
+          series: {
+            lineWidth: 1,
+            marker: {
+              enabled: false,
+            },
+            states: {
+              hover: {
+                enabled: false,
+              },
+              inactive: {
+                opacity: 1,
+              },
+            },
+          },
+        },
+
+        series: [{
+          name: 'CD',
+          lineWidth: 1,
+          color: "#890050",
+          dashStyle: 'Dash',
+          accessibility: {
+            description: 'Det här är inkomsten för CD mellan 1973 och 2021.'
+          }
+        }, {
+          name: 'Nedladdning',
+          lineWidth: 3,
+          color: "#3e0079",
+          zIndex: 1,
+          accessibility: {
+            description: 'Det här är inkomsten för nedladdingar mellan 1973 och 2021.'
+          }
+        }]
+      });
+    </script>
+  </body>
+
+</html>

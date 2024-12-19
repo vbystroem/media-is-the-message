@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Medium is the Message – Hur musiken påverkas av formatet</title>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:regular,italic,bold,bolditalic|Space+Grotesk:semibold,regular,italic,medium,mediumitalic,bold,bolditalic|Roboto+Mono:regular,italic,bold,bolditalic">
+  </head>
+  <body>
+    <main>
+      <section class="landing-flex">
+        <article class="landing-title">
+          <h1>Mediet är budskapet</h1>
+          <h2>Hur musiken påverkas av formatet</h2>
+          <hr>
+          <p>
+            <em>Mediet är budskapet</em> är en fras som myntades av
+            professor i litteraturvetenskap Marshall McLuhan, i sitt inflytelserika verk
+            <em>"Media"</em> publicerat 1964. McLuhan tyckte att
+            budskapet som förmedlas med ett verk
+            påverkas mer av <em>formen det tar</em> än själva innehållet, då formen
+            kraftigt påverkar sättet vi ser på världen
+            (Wikipedia, <cite class="cite-l"><a href="https://sv.wikipedia.org/wiki/Mediet_%C3%A4r_budskapet" target="_blank">"Mediet är budskapet"</a></cite>). 
+            Den här webbplatsen tar inspiration av detta koncept för att
+            utforska musikindustrin, alltså hur musik kan upplevas annorlunda
+            beroende på vilket format som den lyssnas via.
+          </p>
+          <nav class="textnav">
+            <h3>Klicka på ett av formaten för att läsa mer:</h3>
+            <div class="textnav-links">
+              <a href="vinyl.html">Vinyl</a>
+              <a href="cassette.html">Kassett</a>
+              <a href="cd.html">Cd</a>
+              <a href="download.html">Nedladdning</a>
+              <a href="streaming.html">Streaming</a>
+            </div>
+          </nav>
+        </article>
+        <figure class="chart-container">
+          <div id="container-chart-main"></div>
+        </figure>
+      </section>
+    </main>
+    
+    <nav class="landing_chart">
+      <object
+        id="landing-1280"
+        type="image/svg+xml"
+        data="../images/landing-1280.svg"
+        name="Illustrationer av musikformat"
+      ></object>
+      <object
+        id="landing-768"
+        type="image/svg+xml"
+        data="../images/landing-768.svg"
+        name="Illustrationer av musikformat"
+      ></object>
+      <object
+        id="landing-360"
+        type="image/svg+xml"
+        data="../images/landing-360.svg"
+        name="Illustrationer av musikformat"
+      ></object>
+    </nav>
+    <script>
+      Highcharts.chart("container-chart-main", {
+        data: {
+          csvURL: "../data/RIAA Revenue Chart 1973-2021 Grouped v3 bn round3.csv",
+          beforeParse: function (csv) {
+            return csv.replace(/\n\n/g, "\n");
+          },
+        },
+
+        accessibility: {
+          enabled: true,
+          description: 'Denna graf visar olika formats intäkter mellan 1973 och 2021. Vinyl var det dominerande formatet till mitten av 80-talet när kassetten tog över. I början av 90-talet tog CD över marknaden fram tills att nedladdning blev vanligare. Nedladdning steg stadigt till ca 2012 när streaming började bli allt populärare och streaming är idag det största formatet.'
+        },
+
+        chart: {
+          type: 'spline'
+        },
+
+        credits: {
+          enabled: false,
+        },
+
+        title: {
+          text: "",
+        },
+
+        subtitle: {
+          text: 'Källa: <cite class="cite cite-chart"><a href="https://www.riaa.com/u-s-sales-database/" target="_blank"><u>RIAA "U.S Sales Database"</u></a></cite>',
+          verticalAlign: "bottom",
+          
+          align: 'right',
+        },
+
+        xAxis: {
+          visible: true,
+          color: "#464646",
+          tickWidth: 0,
+        },
+
+        yAxis: [
+          {
+            title: {
+              text: "Intäkter (md)",
+            },
+            visible: true,
+            gridLineWidth: 0,
+            minPadding: 0.5,
+            showFirstLabel: false,
+            labels: {
+              format: "${value}",
+            },
+          },
+        ],
+
+        legend: {
+          enabled: true,
+          align: "left",
+          verticalAlign: "top",
+          borderWidth: 0,
+          x: 90,
+        },
+
+        tooltip: {
+          enabled: false
+        },
+
+        plotOptions: {
+          series: {
+            lineWidth: 1,
+            marker: {
+              enabled: false,
+            },
+            states: {
+              hover: {
+                enabled: false,
+              },
+              inactive: {
+                opacity: 0.5,
+              },
+            },
+          },
+        },
+
+        series: [{
+          name: "CD",
+          color: "#890050",
+          lineWidth: 2,
+          dashStyle: 'ShortDash',
+          accessibility: {
+            description: 'Det här är inkomsten för CD mellan 1973 och 2021.'
+          }
+        },{
+          name: "Kassett",
+          color: "#0009b5",
+          lineWidth: 2,
+          dashStyle: 'Dot',
+          accessibility: {
+            description: 'Det här är inkomsten för kassetter mellan 1973 och 2021.'
+          }
+        },{
+          name: "Nedladdning",
+          color: "#3e0079",
+          lineWidth: 2,
+          dashStyle: 'ShortDashDotDot',
+          accessibility: {
+            description: 'Det här är inkomsten för nedladdningar mellan 1973 och 2021.'
+          }
+        },{
+          name: "Vinyl",
+          color: "#7d3600",
+          lineWidth: 2,
+          dashStyle: 'Dash',
+          accessibility: {
+            description: 'Det här är inkomsten för vinyler mellan 1973 och 2021.'
+          }
+        },{
+          name: "Streaming",
+          color: "#0e5200",
+          lineWidth: 2,
+          dashStyle: 'ShortDashDot',
+          accessibility: {
+            description: 'Det här är inkomsten för streaming mellan 1973 och 2021.'
+          }
+        }]
+      });
+    </script>
+  </body>
+</html>

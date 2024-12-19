@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kassett – The Medium is the Message</title>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:regular,italic,bold,bolditalic|Space+Grotesk:semibold,regular,italic,medium,mediumitalic,bold,bolditalic|Roboto+Mono:regular,italic,bold,bolditalic">
+
+  </head>
+  <body>
+    <a class="skiplink color-c" tabindex="-1" href="#arttitle">» Skip to content</a>
+    <nav class="bckfwd">
+      <a href="vinyl.html" aria-label="Back">
+        <div class="color-c arrow">&#60;</div>
+      </a>
+
+      <a href="landing.html" aria-label="Start">
+        <div class="color-c start">Start</div>
+      </a>
+
+      <a href="cd.html" aria-label="Forward">
+        <div class="color-c arrow">&#62;</div>
+      </a>
+    </nav>
+    <main>
+      <section class="topinfo-c">
+        <div class="chart_drawing">
+          <img class="svg" src="../images/sameheight-cassette.svg" alt="En illustration av ett kassettband">
+          <h1>Kassett</h1>
+          <figure class="chart-container">
+            <div id="container-chart"></div>
+          </figure>
+        </div>
+        <h1 class="h1-after">Kassett</h1>
+        <h2>
+          <b>Heyday:</b><br>1987 – 1992
+        </h2>
+        <p class="emptyline"> <br></p>
+        <h2>
+          <b>Typ:</b><br>Analog
+        </h2>
+        <p class="emptyline"><br> </p>
+        <h2>
+          <b>Mest sålda album <br> under formatets starkaste år (1990):</b><br>Janet Jackson – Rhythm Nation 1814 <a href="https://en.wikipedia.org/wiki/List_of_Billboard_200_number-one_albums_of_1990" target="_blank"><br><u>(Wikipedia, "List of Billboard 200 number-one albums of 1990")</u></a>
+        </h2>
+      </section>
+    </main>
+    <script>
+      Highcharts.chart('container-chart', {
+
+        data: {
+          csvURL: '../data/RIAA Revenue Chart 1973-2021 Grouped v3 bn round3.csv',
+          beforeParse: function (csv) {
+            return csv.replace(/\n\n/g, '\n');
+          }
+        },
+
+        accessibility: {
+          enabled: true,
+          description: 'En graf som visar intäkter som musikformaten Vinyl, Kassett, Cd, Nedladdning och Streaming tjänat mellan 1973 och 2021. Cd har tjänat mest (ca. 51%, mestadels under 90-talet och tidiga 2000-talet), följt av Vinyl (ca. 18%, mestadels under 70-och-80-talen, med en liten återkomst i 2020-talet), sedan Kassett (ca. 17%, mestadels under 80-och-90-talen), Streaming (ca. 8%, från 2010-talet och framåt) och sist Nedladdning (ca. 5%, mestadels under 2000-talet). Endast linjen som representerar Kassett är fokuserad.'
+        },
+
+        credits: {
+              enabled: false
+          },
+
+        title: {
+          text: '',
+        },
+
+        subtitle: {
+          text: 'Källa: <cite class="cite-chart"><a href="https://www.riaa.com/u-s-sales-database/" target="_blank"><u>RIAA "U.S Sales Database"</u></a></cite>',
+          verticalAlign: "bottom",
+          align: 'right',
+        },
+
+        xAxis: {
+          visible: false
+        },
+
+        yAxis: [{
+          title: {
+            text: ''
+          },
+          visible: false,
+          gridLineWidth: 0,
+          minPadding: 0.5,
+        }],
+
+        legend: {
+          enabled: false
+        },
+
+        tooltip: {
+            enabled: false
+        },
+
+        plotOptions: {
+          series: {
+            lineWidth: 1,
+            marker: {
+              enabled: false,
+            },
+            states: {
+              hover: {
+                enabled: false,
+              },
+              inactive: {
+                opacity: 1,
+              },
+            },
+          },
+        },
+
+        series: [{          
+            name: 'CD',
+            color: "#464646",
+            dashStyle: 'Dash',
+            accessibility: {
+              description: 'Det här är inkomsten för CD mellan 1973 och 2021.'
+            }
+          }, {
+            name: 'Kassett',
+            color: "#0009b5",
+            lineWidth: 3,
+            zIndex: 1,
+            accessibility: {
+              description: 'Det här är inkomsten för kassetter mellan 1973 och 2021.'
+            }
+          }, {
+            name: 'Nedladdning',
+            color: "#464646",
+            dashStyle: 'Dash',
+            accessibility: {
+              description: 'Det här är inkomsten för nedladdningar mellan 1973 och 2021.'
+            }
+          }, {
+            name: 'Vinyl',
+            color: "#464646",
+            dashStyle: 'Dash',
+            accessibility: {
+              description: 'Det här är inkomsten för vinyler mellan 1973 och 2021.'
+            }
+          }, {
+            name: 'Streaming',
+            color: "#464646",
+            dashStyle: 'Dash',
+            accessibility: {
+              description: 'Det här är inkomsten för streaming mellan 1973 och 2021.'
+            }
+        }]
+      });
+    </script>
+  </body>
+</html>

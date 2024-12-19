@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Streaming – The Medium is the Message</title>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <script src="https://code.highcharts.com/modules/annotations.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:regular,italic,bold,bolditalic|Space+Grotesk:semibold,regular,italic,medium,mediumitalic,bold,bolditalic|Roboto+Mono:regular,italic,bold,bolditalic">
+
+  </head>
+  <body>
+    <a class="skiplink color-s" href="#arttitle">» Skip to content</a>
+    <nav class="bckfwd">
+      <a href="download.html" aria-label="Back">
+        <div class="color-s arrow">&#60;</div>
+      </a>
+
+      <a href="landing.html" aria-label="Start">
+        <div class="color-s start">Start</div>
+      </a>
+
+      <div class="color-none arrow">&#62;</div>
+    </nav>
+    <main>
+      <section class="topinfo-s">
+        <div class="chart_drawing">
+          <img class="svg portrait" src="../images/sameheight-streaming.svg" alt="En illustration av en smartphone med en musik-streaming-app på skärmen" />
+          <img class="svg landscape" src="../images/formats-streaming-landscape.svg" alt="En illustration av en smartphone med en musik-streaming-app på skärmen">
+          <h1>Streaming</h1>
+          <figure class="chart-container">
+            <div id="container-chart"></div>
+          </figure>
+        </div>
+        <h1 class="h1-after">Streaming</h1>
+        <h2><b>Heyday:</b><br>2016 – Nuvarande</h2>
+        <p class="emptyline"><br></p>
+        <h2><b>Typ:</b><br>Digital</h2>
+        <p class="emptyline"><br></p>
+        <h2><b>Mest sålda album <br> under formatets starkaste år (2021):</b> Adele – 30<br/><a href="https://en.wikipedia.org/wiki/List_of_Billboard_200_number-one_albums_of_2021" target="_blank"><u>(Wikipedia, "List of Billboard 200 number-one albums of 2021")</u></a></h2>
+        <a role="button" class="scrollink" href="#arttitle" id="doublearrow">»</a>
+      </section>
+      <div class="divider"><hr></div>
+      <div class="arrticle">
+        <article class="article">
+          <h1 id="arttitle">Hur har streamingtjänster påverkat våra lyssnarvanor?</h1>
+          <div class="artbody-s">
+            <div>
+              <p><b>Med lanseringen av</b> de första streamingtjänstera börjar stadigt en minskning i medellängden hos låtar från ca. 240 000 ms (4:00, 2005) till 191 000 (3:10, 2022). Detta kan bero på hur streamingtjänster har byggt sin ekonomiska struktur, med att en “lyssning” endast räknas om den är över 30 sekunder (Spotify, <cite class="cite cite-s"><a href="https://artists.spotify.com/help/article/how-we-count-streams" target="_blank">How we count streams</a></cite>). Kopf (2018) argumenterar att faktum att låtens längd inte har någon inverkan på hur mycket betalt artisten får från en lyssning av den, är en av anledningarna till att låtarna blir kortare.</p>
+              <p class="emptyline"><br></p>
+              <figure class="artfig">
+                <blockquote>
+                  "Every song gets paid the same. Kanye West’s 2010 five-minute opus “All Of the Lights” gets the same payment as West’s two-minute long 2018 hit “I Love it”.
+                </blockquote>
+                <figcaption>
+                  — Dan Kopf, <cite class="cite cite-s"><a href="https://qz.com/1519823/is-spotify-making-songs-shorter" target="_blank">The economics of streaming is making songs shorter</a></cite>
+                </figcaption>
+              </figure>
+              <p class="emptyline"><br></p>
+              <p>Det är sant att vi har observerat en ganska dramatisk trend om den sjunkande låtlängden efter streaming tog över, men det är viktigt att placera dessa siffror i kontext. Datan vi tagit från reflekterar inte lyssnarvanor på något sätt, då datasetet endast visar andelen låtar som finns på Spotify. Datan lägger ingen som helst vikt på hur många lyssningar korta låtar har jämtemot längre låtar till exempel. En vanlig observation om den sjunkande låtlängden på streamingtjänster är att den genomsnittliga koncentrationsförmågan har gått ner, och att detta är anledningen att låtlängden har gått ner, men enligt David Hesmondhalgh, Professor i Media, Music and Culture vid University of Leeds finns det anledning att vara skeptiskt mot detta:</p>
+              <p class="emptyline"><br></p>
+              <figure class="artfig">
+                <blockquote>
+                  "There are good reasons to value close musical attention, but we should be careful not to [...] draw conclusions about attentiveness from dubious statistics about shorter average length of tracks. [...] There is an abundance of long tracks on MSPs as well as the many shorter ones that lower the average length."
+                </blockquote>
+                <figcaption>
+                  — David Hesmondhalgh, <cite class="cite cite-s"><a href="https://journals.sagepub.com/doi/pdf/10.1177/17499755211019974" target="_blank">Streaming’s Effects on Music Culture: Old Anxieties and New Simplifications</a></cite>
+                </figcaption>
+              </figure>
+            </div>
+            <div class="latter_art">
+              <figure class="bigchart-s">
+                <div id="container-mashup"></div>
+                <div class="buttons">
+                  <button class="buttons-graph" onclick="doChart(0)">
+                    Låtlängd
+                  </button>
+                  <button class="buttons-graph" onclick="doChart(1)">
+                    Ljudnivå
+                  </button>
+                </div>
+              </figure>
+              <h3>Hur påverkades ljudnivåerna av streamingtjänsterna?</h3>
+              <p class="emptyline"><br></p>
+              <p> <b>År 2010 började</b> den genomsnittliga ljudnivån gå ner för första gången sedan introduktionen av digital ljudkompression. Detta överstämmer med lanseringen av de första streamingtjänsterna, som eventuellt började normalisera ljudnivåerna på alla låtar (Spotify, <cite class="cite cite-s"><a href="https://artists.spotify.com/help/article/loudness-normalization" target="_blank">Loudness Normalization</a></cite>). Varför denna normalisering görs i streamingtjänsterna kan bero på en generell negativ reaktion till det pågående s.k “Loudness War” som enligt vissa förvärrat ljudkvaliteten på musik överlag. Bland kritikerna av The Loudness War är Peter Mew, senior mastering engineer på Abbey Road studios:</p>  
+              <p class="emptyline"><br></p>
+              <figure class="artfig">
+                <blockquote>"The brain is not geared to accept buzzing. The CDs induce a sense of fatigue in the listeners. It becomes psychologically tiring and almost impossible to listen to."</blockquote>
+                <figcaption>— Adam Sherwin, <cite class="cite cite-s"><a href="http://elliott-randall.com/2011/06/why-music-really-is-getting-louder/" target="_blank">Why music really is getting louder</a></cite></figcaption>
+              </figure>
+            </div>
+          </div>
+        </article>
+      </div>
+    </main>
+    <script>
+      var annotationData = [{
+        x: 2005,
+        y: 0.224,
+        xOffset: 0,
+        yOffset: -10,
+        text: 'Spotify'
+      }];
+
+      Highcharts.chart('container-chart', {
+
+        data: {
+          csvURL: '../data/RIAA Revenue Chart 1973-2021 Grouped v3 bn round3.csv',
+          beforeParse: function (csv) {
+            return csv.replace(/\n\n/g, '\n');
+          }
+        },
+
+        accessibility: {
+          enabled: true,
+          description: 'En graf som visar intäkter som musikformaten Vinyl, Kassett, Cd, Nedladdning och Streaming tjänat mellan 1973 och 2021. Cd har tjänat mest (ca. 51%, mestadels under 90-talet och tidiga 2000-talet), följt av Vinyl (ca. 18%, mestadels under 70-och-80-talen, med en liten återkomst i 2020-talet), sedan Kassett (ca. 17%, mestadels under 80-och-90-talen), Streaming (ca. 8%, från 2010-talet och framåt) och sist Nedladdning (ca. 5%, mestadels under 2000-talet). Endast linjen som representerar Streaming är fokuserad.'
+        },
+
+        credits: {
+          enabled: false
+        },
+
+        title: {
+          text: '',
+        },
+
+        subtitle: {
+          text: 'Källa: <cite class="cite-chart"><a href="https://www.riaa.com/u-s-sales-database/" target="_blank"><u>RIAA "U.S Sales Database"</u></a></cite>',
+          verticalAlign: "bottom",
+          align: 'right',
+        },
+
+        xAxis: {
+          visible: false
+        },
+
+        yAxis: [{
+          title: {
+            text: ''
+          },
+          visible: false,
+          gridLineWidth: 0,
+          minPadding: 0.5,
+        }],
+
+        legend: {
+          enabled: false
+        },
+
+        tooltip: {
+            enabled: false
+        },
+
+        plotOptions: {
+          series: {
+            lineWidth: 1,
+            marker: {
+              enabled: false,
+            },
+            states: {
+              hover: {
+                enabled: false,
+              },
+              inactive: {
+                opacity: 1,
+              },
+            },
+          },
+        },
+
+        series: [{
+          name: 'CD',
+          color: "#464646",
+          dashStyle: 'Dash',
+          accessibility: {
+            description: 'Det här är inkomsten för CD mellan 1973 och 2021.'
+          }
+        }, {
+          name: 'Kassett',
+          color: "#464646",
+          dashStyle: 'Dash',
+          accessibility: {
+            description: 'Det här är inkomsten för kassetter mellan 1973 och 2021.'
+          }
+        }, {
+          name: 'Nedladdning',
+          color: "#464646",
+          dashStyle: 'Dash',
+          accessibility: {
+            description: 'Det här är inkomsten för nedladdningar mellan 1973 och 2021.'
+          }
+        }, {
+          name: 'Vinyl',
+          color: "#464646",
+          dashStyle: 'Dash',
+          accessibility: {
+            description: 'Det här är inkomsten för vinyler mellan 1973 och 2021.'
+          }
+        }, {
+          name: 'Streaming',
+          color: "#0e5200",
+          lineWidth: 3,
+          zIndex: 1,
+          accessibility: {
+            description: 'Det här är inkomsten för streaming mellan 1973 och 2021.'
+          }
+        }]
+      });
+
+      chartObj = Highcharts.chart('container-mashup', {});
+
+      doChart(0);
+
+      async function doChart(val) {
+
+        chartObj.destroy();
+
+        if (val == 0) {
+          chartObj = Highcharts.chart('container-mashup', {
+            data: {
+                csvURL: '../data/RIAA Spotify stream length.csv',
+                beforeParse: function (csv) {
+                    return csv.replace(/\n\n/g, '\n');
+                }
+            },
+
+            accessibility: {
+              enabled: true,
+              description: 'En graf som visar en linje för streamings intäkter mellan 2004 och 2021 tillsammans med en lije över snittlängden på låtar mellan 1973 och 2021. Från sena 2010-talet och framåt när streaming blivit mer och mer populärt syns att låtar blivit allt kortare.'
+            },
+
+            chart: {
+              events: {
+                load: function() {
+                  var chart = this;
+
+                  annotationData.forEach(function(annotation) {
+                    chart.addAnnotation({
+                      labels: [{
+                        type: 'label',
+                        point: {
+                          x: annotation.x,
+                          y: annotation.y,
+                          xAxis: 0,
+                          yAxis: 0
+                        },
+                        x: annotation.xOffset,
+                        y: annotation.yOffset,
+                        text: annotation.text
+                      }]
+                    });
+                  });
+                },
+              }
+            },
+
+            credits: {
+              enabled: false
+            },
+
+            title: {
+              text: '',
+            },
+
+            subtitle: {
+              text: 'Källa: <cite class="cite-chart"><a href="https://www.riaa.com/u-s-sales-database/" target="_blank"><u>RIAA "U.S Sales Database"</u></a></cite>, <cite class="cite-chart"><a href="https://www.kaggle.com/datasets/yamaerenay/spotify-dataset-19212020-600k-tracks" target="_blank"><u>Kaggle "Spotify Dataset 1921-2020"</u></a></cite>',
+              verticalAlign: "bottom",
+              align: 'center',
+            },
+
+            xAxis: {
+              visible: true,
+              lineWidth: 1,
+              lineColor: "#464646",
+              tickWidth: 0,
+              labels: {
+                enabled: true,
+              },
+            },
+
+            yAxis: [{ // left y axis
+                title: {
+                  text: 'Intäkter (md)'
+                },
+                labels: {
+                  enabled: true,
+                  format: '${value}'
+                },
+                gridLineWidth: 0,
+                minPadding: 0.5,
+                lineWidth: 0,
+                lineColor: "#464646",
+                showFirstLabel: false
+              },
+              { // right y axis
+                opposite: true,
+                title: {
+                  text: 'Längd'
+                },
+                labels: {
+                  enabled: true,
+                  format: '{value}s'
+                },
+                gridLineWidth: 0,
+                minPadding: 0.5,
+                showFirstLabel: false
+            }],
+
+            legend: {
+              enabled: true,
+              align: 'left',
+              verticalAlign: 'top',
+              borderWidth: 0,
+              x: 90
+            },
+
+            tooltip: {
+                enabled: false
+            },
+
+            plotOptions: {
+              series: {
+                lineWidth: 1,
+                marker: {
+                  enabled: false,
+                },
+                states: {
+                  hover: {
+                    enabled: false,
+                  },
+                  inactive: {
+                    opacity: 1,
+                  },
+                },
+              },
+            },
+
+            series: [{
+              name: 'Streaming',
+              color: "#0e5200",
+              lineWidth: 3,
+              zIndex: 1,
+              accessibility: {
+                description: 'Det här är den genomsnittliga låtlängden mellan 1973 och 2021.'
+              }
+            }, {
+              name: 'Längd',
+              lineWidth: 1,
+              color: '#464646',
+              zIndex: 2,
+              dashStyle: 'Dash',
+              yAxis: 1,
+              accessibility: {
+                description: 'Det här är den genomsnittliga låtlängden mellan 1973 och 2021.'
+              }
+            }]
+          });
+        } else if (val == 1) {
+          chartObj = Highcharts.chart('container-mashup', {
+            data: {
+                csvURL: '../data/RIAA Spotify stream loud.csv',
+                beforeParse: function (csv) {
+                    return csv.replace(/\n\n/g, '\n');
+                }
+            },
+
+            accessibility: {
+              description: 'En graf som visar en linje för streamings intäkter mellan 2004 och 2021 tillsammans med en lije över de generella ljudnivåerna mellan 1973 och 2021. Under sena 2010-talet när streaming blivit mer och mer populärt har man börjat se en minskning i den allmänna ljudnivån.'
+            },
+
+            chart: {
+              events: {
+                load: function() {
+                  var chart = this;
+
+                  annotationData.forEach(function(annotation) {
+                    chart.addAnnotation({
+                      labels: [{
+                        type: 'label',
+                        point: {
+                          x: annotation.x,
+                          y: annotation.y,
+                          xAxis: 0,
+                          yAxis: 0
+                        },
+                        x: annotation.xOffset,
+                        y: annotation.yOffset,
+                        text: annotation.text
+                      }]
+                    });
+                  });
+                },
+              }
+            },
+
+            credits: {
+              enabled: false
+            },
+
+            title: {
+              text: '',
+            },
+
+            subtitle: {
+          text: 'Källa: <cite class="cite-chart"><a href="https://www.riaa.com/u-s-sales-database/" target="_blank"><u>RIAA "U.S Sales Database"</u></a></cite>, <cite class="cite-chart"><a href="https://www.kaggle.com/datasets/yamaerenay/spotify-dataset-19212020-600k-tracks"><u>Kaggle "Spotify Dataset 1921-2020"</u></a></cite>',
+          verticalAlign: "bottom",
+          align: 'center',
+        },
+
+            xAxis: {
+              visible: true,
+              lineWidth: 1,
+              lineColor: "#464646",
+              tickWidth: 0,
+              labels: {
+                enabled: true,
+              },
+            },
+
+            yAxis: [{ // left y axis
+              title: {
+                text: 'Intäkter (md USD)'
+              },
+              labels: {
+                enabled: true,
+                format: '${value}'
+              },
+              gridLineWidth: 0,
+              minPadding: 0.5,
+              lineWidth: 0,
+              lineColor: "#464646",
+              showFirstLabel: false
+            },
+            { // right y axis
+              opposite: true,
+              title: {
+                text: 'Ljudnivå'
+              },
+              labels: {
+                enabled: true,
+                format: '{value}s'
+              },
+              gridLineWidth: 0,
+              minPadding: 0.5,
+              showFirstLabel: false
+            }],
+
+            legend: {
+              enabled: true,
+              align: 'left',
+              verticalAlign: 'top',
+              borderWidth: 0,
+              x: 90
+            },
+
+            tooltip: {
+                enabled: false
+            },
+
+            plotOptions: {
+              series: {
+                lineWidth: 1,
+                marker: {
+                  enabled: false,
+                },
+                states: {
+                  hover: {
+                    enabled: false,
+                  },
+                  inactive: {
+                    opacity: 1,
+                  },
+                },
+              },
+            },
+
+            series: [{
+              name: 'Streaming',
+              color: "#0e5200",
+              lineWidth: 3,
+              zIndex: 1,
+              accessibility: {
+                description: 'Det här är inkomsten för streaming mellan 1973 och 2021.'
+              }
+            }, {
+              name: 'Ljudnivå',
+              lineWidth: 1,
+              color: '#464646',
+              dashStyle: 'Dash',
+              zIndex: 2,
+              yAxis: 1,
+              accessibility: {
+                description: 'Det här är den genomsnittliga ljudnivån på låtar mellan 1973 och 2021.'
+              }
+            }]
+          });
+        }
+      }
+    </script>
+  </body>
+</html>
