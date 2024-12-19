@@ -31,8 +31,8 @@
     <main id="main">
       <section class="topinfo-d">
         <div class="chart_drawing">
-          <img class="svg portrait" src="../images/sameheight-downloads.svg" alt="En illustration av en USB-sticka" />
-          <img class="svg landscape" src="../images/formats-downloads-landscape.svg" alt="En illustration av en USB-sticka">
+          <img class="svg portrait" src="./images/sameheight-downloads.svg" alt="En illustration av en USB-sticka" />
+          <img class="svg landscape" src="./images/formats-downloads-landscape.svg" alt="En illustration av en USB-sticka">
           <h1>Nedladdning</h1>
           <figure class="chart-container">
             <div id="container-chart"></div>
@@ -94,7 +94,7 @@
       Highcharts.chart('container-chart', {
 
         data: {
-          csvURL: '../data/RIAA Revenue Chart 1973-2021 Grouped v3 bn round3.csv',
+          csvURL: './data/RIAA Revenue Chart 1973-2021 Grouped v3 bn round3.csv',
           beforeParse: function (csv) {
             return csv.replace(/\n\n/g, '\n');
           }

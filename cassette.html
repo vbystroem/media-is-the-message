@@ -30,7 +30,7 @@
     <main>
       <section class="topinfo-c">
         <div class="chart_drawing">
-          <img class="svg" src="../images/sameheight-cassette.svg" alt="En illustration av ett kassettband">
+          <img class="svg" src="./images/sameheight-cassette.svg" alt="En illustration av ett kassettband">
           <h1>Kassett</h1>
           <figure class="chart-container">
             <div id="container-chart"></div>
@@ -54,7 +54,7 @@
       Highcharts.chart('container-chart', {
 
         data: {
-          csvURL: '../data/RIAA Revenue Chart 1973-2021 Grouped v3 bn round3.csv',
+          csvURL: './data/RIAA Revenue Chart 1973-2021 Grouped v3 bn round3.csv',
           beforeParse: function (csv) {
             return csv.replace(/\n\n/g, '\n');
           }

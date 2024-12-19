@@ -51,26 +51,26 @@
       <object
         id="landing-1280"
         type="image/svg+xml"
-        data="../images/landing-1280.svg"
+        data="./images/landing-1280.svg"
         name="Illustrationer av musikformat"
       ></object>
       <object
         id="landing-768"
         type="image/svg+xml"
-        data="../images/landing-768.svg"
+        data="./images/landing-768.svg"
         name="Illustrationer av musikformat"
       ></object>
       <object
         id="landing-360"
         type="image/svg+xml"
-        data="../images/landing-360.svg"
+        data="./images/landing-360.svg"
         name="Illustrationer av musikformat"
       ></object>
     </nav>
     <script>
       Highcharts.chart("container-chart-main", {
         data: {
-          csvURL: "../data/RIAA Revenue Chart 1973-2021 Grouped v3 bn round3.csv",
+          csvURL: "./data/RIAA Revenue Chart 1973-2021 Grouped v3 bn round3.csv",
           beforeParse: function (csv) {
             return csv.replace(/\n\n/g, "\n");
           },
