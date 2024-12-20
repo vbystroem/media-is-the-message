@@ -109,7 +109,7 @@
       Highcharts.chart('container-chart', {
 
         data: {
-          csvURL: '/data/RIAA Revenue Chart 1973-2021 Grouped v3 bn round3.csv',
+          csvURL: '../data/RIAA Revenue Chart 1973-2021 Grouped v3 bn round3.csv',
           beforeParse: function (csv) {
             return csv.replace(/\n\n/g, '\n');
           }
