@@ -8,6 +8,7 @@
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/data.js"></script>
     <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <script></script>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:regular,italic,bold,bolditalic|Space+Grotesk:semibold,regular,italic,medium,mediumitalic,bold,bolditalic|Roboto+Mono:regular,italic,bold,bolditalic">
   </head>
@@ -70,7 +71,7 @@
     <script>
       Highcharts.chart("container-chart-main", {
         data: {
-          csvURL: "./data/RIAA Revenue Chart 1973-2021 Grouped v3 bn round3.csv",
+          csvURL: "../data/RIAA Revenue Chart 1973-2021 Grouped v3 bn round3.csv",
           beforeParse: function (csv) {
             return csv.replace(/\n\n/g, "\n");
           },
